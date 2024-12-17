@@ -48,6 +48,7 @@ alias ovim=vim
 alias oc='cd ~/Documents/git && echo "Went to the git folder"'
 alias ob='open -a Firefox\ Developer\ Edition'
 alias os='nvim ~/.zshrc'
+alias ss='source ~/.zshrc'
 op() {
   local dir=~/Documents/git/"$1"
   if [ -d "$dir" ]; then
@@ -57,8 +58,6 @@ op() {
     return 1
   fi
 }
-alias ss='source ~/.zshrc'
-alias cps='cp ~/.zshrc ~/.config/nvim/.zshrc'
 alias oh='cd ~/ && echo "Went back home"'
 alias k='kubectl'
 alias gr=./gradlew
