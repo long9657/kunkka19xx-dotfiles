@@ -62,10 +62,6 @@ alias cps='cp ~/.zshrc ~/.config/nvim/.zshrc'
 alias oh='cd ~/ && echo "Went back home"'
 alias k='kubectl'
 alias gr=./gradlew
-# push tmux to repo
-alias ptm='cp ~/.tmux.conf ~/.config/nvim/.tmux.conf'
-# sync from repo to sys
-alias ctm='cp ~/.config/nvim/.tmux.conf ~/.tmux.conf'
 # source tmux
 alias stm='tmux source-file ~/.tmux.conf \;'
 # confirm before remove something... fk.
@@ -77,3 +73,6 @@ export PATH=$JAVA_HOME/bin:$PATH
 alias vcf="cd ~/.config/nvim && nvim"
 alias python=python3
 alias dc=docker-compose
+
+# fetch then allow to fuzzy finding branches
+alias gcof='git fetch && git checkout $(git branch | fzf | sed "s/^..//")'
