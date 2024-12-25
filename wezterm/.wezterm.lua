@@ -52,7 +52,7 @@ config.window_padding               = {
 
 config.window_background_image_hsb  = {
     -- Darken the background image by reducing it
-    brightness = 0.03,
+    brightness = 0.02,
     hue = 1.0,
     saturation = 0.7,
 }
