@@ -2,32 +2,75 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 local io = require("io")
 local os = require("os")
+local brightness = 0.03
 
 -- image setting
 local user_home = os.getenv("HOME")
 local background_folder = user_home .. "/.config/nvim/bg"
 local function pick_random_background(folder)
     local handle = io.popen('ls "' .. folder .. '"')
-    local files = handle:read("*a")
-    handle:close()
+    if handle ~= nil then
+        local files = handle:read("*a")
+        handle:close()
 
-    local images = {}
-    for file in string.gmatch(files, "[^\n]+") do
-        table.insert(images, file)
-    end
+        local images = {}
+        for file in string.gmatch(files, "[^\n]+") do
+            table.insert(images, file)
+        end
 
-    if #images > 0 then
-        return folder .. "/" .. images[math.random(#images)]
-    else
-        return nil
+        if #images > 0 then
+            return folder .. "/" .. images[math.random(#images)]
+        else
+            return nil
+        end
     end
 end
 
-config.keys                         = {
+config.window_background_image_hsb = {
+    -- Darken the background image by reducing it
+    brightness = brightness,
+    hue = 1.0,
+    saturation = 0.8,
+}
+
+-- default background
+config.window_background_image = user_home .. "/.config/nvim/bg/bg.jpg"
+-- end image setting
+
+-- window setting
+config.window_background_opacity = 0.90
+config.macos_window_background_blur = 85
+config.window_padding = {
+    left = 0,
+    right = 0,
+    top = 0,
+    bottom = 0,
+}
+
+config.color_scheme = "Tokyo Night"
+config.font = wezterm.font("Inconsolata Nerd Font Mono", { weight = "Medium", stretch = "Expanded" })
+config.font_size = 22
+
+config.window_decorations = "RESIZE"
+config.enable_tab_bar = false
+
+config.window_frame = {
+    border_left_width = "0.28cell",
+    border_right_width = "0.28cell",
+    border_bottom_height = "0.15cell",
+    border_top_height = "0.15cell",
+    border_left_color = "pink",
+    border_right_color = "pink",
+    border_bottom_color = "pink",
+    border_top_color = "pink",
+}
+
+-- keys
+config.keys = {
     {
         key = "b",
         mods = "CTRL|SHIFT",
-        action = wezterm.action_callback(function(window, pane)
+        action = wezterm.action_callback(function(window)
             local new_background = pick_random_background(background_folder)
             if new_background then
                 window:set_config_overrides({
@@ -39,48 +82,42 @@ config.keys                         = {
             end
         end),
     },
+    {
+        key = "L",
+        mods = "CTRL|SHIFT",
+        action = wezterm.action.OpenLinkAtMouseCursor,
+    },
+    {
+        key = ">",
+        mods = "CTRL|SHIFT",
+        action = wezterm.action_callback(function(window)
+            brightness = math.min(brightness + 0.01, 1.0)
+            window:set_config_overrides({
+                window_background_image_hsb = {
+                    brightness = brightness,
+                    hue = 1.0,
+                    saturation = 0.8,
+                },
+            })
+        end),
+    },
+    {
+        key = "<",
+        mods = "CTRL|SHIFT",
+        action = wezterm.action_callback(function(window)
+            brightness = math.max(brightness - 0.01, 0.01)
+            window:set_config_overrides({
+                window_background_image_hsb = {
+                    brightness = brightness,
+                    hue = 1.0,
+                    saturation = 0.8,
+                },
+            })
+        end),
+    },
 }
 
-config.window_background_opacity    = 0.82
-config.macos_window_background_blur = 35
-config.window_padding               = {
-    left = 0,
-    right = 0,
-    top = 0,
-    bottom = 0,
-}
-
-config.window_background_image_hsb  = {
-    -- Darken the background image by reducing it
-    brightness = 0.02,
-    hue = 1.0,
-    saturation = 0.7,
-}
-
--- end image setting
-
-config.color_scheme                 = 'Tokyo Night'
-config.window_background_image      = user_home .. "/.config/nvim/bg/bg.jpg"
-
-config.font                         = wezterm.font("Hack Nerd Font"
-, { weight = "Medium", stretch = 'Expanded',
-}
-)
-config.font_size                    = 19
-
-config.window_decorations           = "RESIZE"
-config.enable_tab_bar               = false
-
-
-config.window_frame = {
-    border_left_width = '0.2cell',
-    border_right_width = '0.3cell',
-    border_bottom_height = '0.3cell',
-    border_top_height = '0.2cell',
-    border_left_color = 'pink',
-    border_right_color = 'pink',
-    border_bottom_color = 'pink',
-    border_top_color = 'pink',
-}
-
+-- others
+config.default_cursor_style = "BlinkingUnderline"
+config.cursor_thickness = 2
 return config
