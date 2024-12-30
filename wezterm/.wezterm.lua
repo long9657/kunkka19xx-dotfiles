@@ -34,7 +34,9 @@ config.window_background_image_hsb = {
 }
 
 -- default background
-config.window_background_image = user_home .. "/.config/nvim/bg/bg.jpg"
+local bg_image = user_home .. "/.config/nvim/bg/bg.jpg"
+
+config.window_background_image = bg_image
 -- end image setting
 
 -- window setting
@@ -71,12 +73,12 @@ config.keys = {
         key = "b",
         mods = "CTRL|SHIFT",
         action = wezterm.action_callback(function(window)
-            local new_background = pick_random_background(background_folder)
-            if new_background then
+            bg_image = pick_random_background(background_folder)
+            if bg_image then
                 window:set_config_overrides({
-                    window_background_image = new_background,
+                    window_background_image = bg_image,
                 })
-                wezterm.log_info("New bg:" .. new_background)
+                wezterm.log_info("New bg:" .. bg_image)
             else
                 wezterm.log_error("Could not find bg image")
             end
@@ -98,6 +100,7 @@ config.keys = {
                     hue = 1.0,
                     saturation = 0.8,
                 },
+                window_background_image = bg_image
             })
         end),
     },
@@ -112,6 +115,7 @@ config.keys = {
                     hue = 1.0,
                     saturation = 0.8,
                 },
+                window_background_image = bg_image
             })
         end),
     },
