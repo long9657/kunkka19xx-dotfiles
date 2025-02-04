@@ -59,7 +59,7 @@ alt-r = 'workspace R' # Reading
 alt-s = 'workspace S' # Setting
 alt-t = 'workspace T' # Terminal
 alt-v = 'workspace V' # Edit Video
-alt-w = 'workspace W' # Work: Slack, ggmeet,...
+alt-w = 'workspace W' # Work: Slack, ggmeet, discord,...
 
 alt-shift-1 = 'move-node-to-workspace 1'
 alt-shift-2 = 'move-node-to-workspace 2'
@@ -146,6 +146,22 @@ run = 'move-node-to-workspace S'
 [[on-window-detected]]
 if.app-id = 'org.godotengine.godot'
 run = 'move-node-to-workspace G'
+
+[[on-window-detected]]
+if.app-id = 'com.hnc.Discord'
+run = 'move-node-to-workspace W'
+
+[[on-window-detected]]
+if.app-id = 'com.blackmagic-design.DaVinciResolveLite'
+run = 'move-node-to-workspace V'
+
+[[on-window-detected]]
+if.app-id = 'com.blackmagic-design.DaVinciResolveLite'
+run = 'move-node-to-workspace V'
+
+[[on-window-detected]]
+if.app-id = 'com.obsproject.obs-studio'
+run = 'move-node-to-workspace V'
 
 #which work space is on which monitor
 [workspace-to-monitor-force-assignment]
