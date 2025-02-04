@@ -156,10 +156,6 @@ if.app-id = 'com.blackmagic-design.DaVinciResolveLite'
 run = 'move-node-to-workspace V'
 
 [[on-window-detected]]
-if.app-id = 'com.blackmagic-design.DaVinciResolveLite'
-run = 'move-node-to-workspace V'
-
-[[on-window-detected]]
 if.app-id = 'com.obsproject.obs-studio'
 run = 'move-node-to-workspace V'
 
