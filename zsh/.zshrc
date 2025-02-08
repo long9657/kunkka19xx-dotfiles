@@ -72,6 +72,6 @@ export PATH=$JAVA_HOME/bin:$PATH
 alias vcf="cd ~/.config/nvim && nvim"
 alias python=python3
 alias dc=docker-compose
-
+alias lzd=lazydocker
 # fetch then allow to fuzzy finding branches
 alias gcof='git fetch && git checkout $(git branch | fzf | sed "s/^..//")'
