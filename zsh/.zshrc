@@ -75,3 +75,8 @@ alias dc=docker-compose
 alias lzd=lazydocker
 # fetch then allow to fuzzy finding branches
 alias gcof='git fetch && git checkout $(git branch | fzf | sed "s/^..//")'
+# push with set upstream for the current branch
+gpup() {
+  branch=$(git rev-parse --abbrev-ref HEAD)
+  git push --set-upstream origin "$branch"
+}
