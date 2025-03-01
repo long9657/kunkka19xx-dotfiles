@@ -67,7 +67,7 @@ alias stm='tmux source-file ~/.tmux.conf \;'
 alias rm="rm -i"
 # PATH
 export PATH="/opt/homebrew/share/android-commandlinetools/cmdline-tools/latest/bin:$PATH"
-export JAVA_HOME=$(/usr/libexec/java_home -v 17)
+export JAVA_HOME=$(/usr/libexec/java_home -v 23)
 export PATH=$JAVA_HOME/bin:$PATH
 alias vcf="cd ~/.config/nvim && nvim"
 alias python=python3
