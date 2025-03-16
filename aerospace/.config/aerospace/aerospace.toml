@@ -112,6 +112,10 @@ if.app-id = 'com.google.Chrome'
 run = "move-node-to-workspace B"
 
 [[on-window-detected]]
+if.app-id = 'org.mozilla.firefox'
+run = "move-node-to-workspace B"
+
+[[on-window-detected]]
 if.app-id = 'org.mozilla.firefoxdeveloperedition'
 run = "move-node-to-workspace B"
 
@@ -131,6 +135,10 @@ run = "move-node-to-workspace R"
 if.app-id = 'com.apple.iBooksX'
 run = "move-node-to-workspace R"
 
+[[on-window-detected]]
+if.app-id = 'info.sioyek.sioyek'
+run = "move-node-to-workspace R"
+ 
 [[on-window-detected]]
 if.app-id = 'notion.id'
 run = "move-node-to-workspace N"
