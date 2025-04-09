@@ -2,3 +2,5 @@
 bg/
 .DS_Store
 dev_*.lua
+data
+ollama/
