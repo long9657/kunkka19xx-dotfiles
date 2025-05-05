@@ -18,12 +18,12 @@ fi
 tasks=()
 while IFS= read -r line; do
   tasks+=("$line")
-done <<< "$(grep '^- \[ \] ' "$LATEST_FILE")"
+done < <(awk '/^- \[ \] / {sub(/^- \[ \] /, ""); print}' "$LATEST_FILE")
 
 if [ "${#tasks[@]}" -eq 0 ]; then
-  echo "✅ All tasks done!"
+  echo "🎧 All done!"
 else
   task="${tasks[RANDOM % ${#tasks[@]}]}"
   # Remove Markdown checkbox prefix
-  echo "$task" | sed 's/^- \[ \] //'
+  echo "⏰ $task" | sed 's/^- \[ \] //'
 fi
