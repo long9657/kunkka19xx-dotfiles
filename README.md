@@ -157,3 +157,11 @@ So I install ollama in my native macos machine.
   [llm](./nvim/.config/nvim/lua/plugins/llm.lua)
 
   **Note that you should install llm-ls via Mason**
+
+  ## Colima
+
+- symlink for docker.sock (use test container or act)
+
+  ```sh
+  sudo ln -s ~/.colima/default/docker.sock /var/run/docker.sock
+  ```
