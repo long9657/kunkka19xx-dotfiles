@@ -12,18 +12,38 @@ git fetch nvim
 
 2. Add prefix
 
+Please remove the old nvim in the parent repo
+
 ```shell
 git subtree add --prefix=nvim/.config/nvim nvim main --squash
 ```
 
+_in the nix repo_
+
+```shell
+git subtree add --prefix=dotfiles/nvim nvim main --squash
+```
+
 - This command adds child repo (remote name, main branch) into the `nvim/.config/nvim` directory in the parent repo
+
+_in the nix repo_
+
+```shell
+git subtree add --prefix=dotfiles/nvim nvim main --squash
+```
 
 3. Push changes from parent repo
 
-   Be careful with the prefix (this should be correct)
+Be careful with the prefix (this should be correct)
 
 ```shell
-git subtree push --prefix=nvim/.config/nvim nvim-config main
+git subtree push --prefix=nvim/.config/nvim nvim main
+```
+
+or
+
+```shell
+git subtree push --prefix=dotfiles/nvim nvim main
 ```
 
 - If you want to sync anyway, remove --squash from 2nd step
@@ -36,5 +56,4 @@ git subtree push --prefix=nvim/.config/nvim nvim-config main
 ```shell
 git fetch nvim
 git subtree pull --prefix=nvim/.config/nvim nvim main --squash
-
 ```
