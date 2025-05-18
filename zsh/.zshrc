@@ -45,20 +45,8 @@ alias v=nvim
 alias vim=nvim
 alias nv=nvim
 alias ovim=vim
-alias oc='cd ~/Documents/git && echo "Went to the git folder"'
-alias ob='open -a Firefox\ Developer\ Edition'
 alias os='nvim ~/.zshrc'
 alias ss='source ~/.zshrc'
-op() {
-  local dir=~/Documents/git/"$1"
-  if [ -d "$dir" ]; then
-    cd "$dir" && echo "went to the ~/Document/git/$1 folder" || return 1
-  else
-    echo "Could not find the directory: $1"
-    return 1
-  fi
-}
-alias oh='cd ~/ && echo "Went back home"'
 alias k='kubectl'
 alias gr=./gradlew
 # source tmux
@@ -79,4 +67,13 @@ alias gcof='git fetch && git checkout $(git branch | fzf | sed "s/^..//")'
 gpup() {
   branch=$(git rev-parse --abbrev-ref HEAD)
   git push --set-upstream origin "$branch"
+}
+opg() {
+  local dir
+  dir=$(find ~/Documents/git -mindepth 1 -maxdepth 1 -type d | fzf) && cd "$dir"
+}
+op() {
+  local user_dir="$HOME"
+  local dir
+  dir=$(find "$user_dir" -mindepth 1 -maxdepth 1 -type d  ! -name '.*' | fzf) && cd "$dir"
 }
