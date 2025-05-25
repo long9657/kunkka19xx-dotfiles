@@ -171,6 +171,10 @@ run = 'move-node-to-workspace V'
 if.app-id = 'com.obsproject.obs-studio'
 run = 'move-node-to-workspace V'
 
+[[on-window-detected]]
+if.app-id = 'com.vmware.fusion'
+run = 'move-node-to-workspace X'
+
 #which work space is on which monitor
 [workspace-to-monitor-force-assignment]
 W = 1 
