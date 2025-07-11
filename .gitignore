@@ -3,6 +3,5 @@
 dev_*.lua
 data
 ollama/
-./qutebrowser/.qutebrowser/quickmarks
-./qutebrowser/.qutebrowser/greasemonkey
-./qutebrowser/.qutebrowser/bookmarks
+qutebrowser/.qutebrowser/bookmarks/
+qutebrowser/.qutebrowser/quickmarks/
