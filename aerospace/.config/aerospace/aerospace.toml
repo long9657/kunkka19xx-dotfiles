@@ -112,10 +112,6 @@ if.app-id = 'org.mozilla.firefox'
 run = "move-node-to-workspace B"
 
 [[on-window-detected]]
-if.app-id = 'org.mozilla.firefoxdeveloperedition'
-run = "move-node-to-workspace B"
-
-[[on-window-detected]]
 if.app-id = 'com.apple.finder'
 run = "move-node-to-workspace D"
 
@@ -152,10 +148,6 @@ if.app-id = 'com.googlecode.iterm2'
 run = 'move-node-to-workspace S'
 
 [[on-window-detected]]
-if.app-id = 'org.godotengine.godot'
-run = 'move-node-to-workspace G'
-
-[[on-window-detected]]
 if.app-id = 'com.hnc.Discord'
 run = 'move-node-to-workspace W'
 
@@ -171,10 +163,15 @@ run = 'move-node-to-workspace V'
 if.app-id = 'com.vmware.fusion'
 run = 'move-node-to-workspace X'
 
+[[on-window-detected]]
+if.app-id = 'org.qutebrowser.qutebrowser'
+run = ['layout tiling', 'move-node-to-workspace B']
+
 #which work space is on which monitor
 [workspace-to-monitor-force-assignment]
 W = 1 
 C = 'secondary'
+X = 'secondary'
 D = 'main'
 S = 'main'
 

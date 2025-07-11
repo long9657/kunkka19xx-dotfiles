@@ -57,14 +57,14 @@ config.window_decorations = "RESIZE"
 config.enable_tab_bar = false
 
 config.window_frame = {
-    border_left_width = "0.28cell",
-    border_right_width = "0.28cell",
-    border_bottom_height = "0.15cell",
-    border_top_height = "0.15cell",
-    border_left_color = "pink",
-    border_right_color = "pink",
-    border_bottom_color = "pink",
-    border_top_color = "pink",
+    -- border_left_width = "0.18cell",
+    -- border_right_width = "0.18cell",
+    -- border_bottom_height = "0.08cell",
+    -- border_top_height = "0.08cell",
+    -- border_left_color = "pink",
+    -- border_right_color = "pink",
+    -- border_bottom_color = "pink",
+    -- border_top_color = "pink",
 }
 
 -- keys
