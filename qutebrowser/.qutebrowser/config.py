@@ -15,6 +15,8 @@ c.tabs.padding = {'top': 5, 'bottom': 5, 'left': 9, 'right': 9}
 c.tabs.indicator.width = 0 # no tab indicators
 # c.window.transparent = True # apparently not needed
 c.tabs.width = '7%'
+# hidetab
+c.tabs.show = "never"
 
 # fonts
 c.fonts.default_family = []
@@ -32,3 +34,7 @@ c.url.searchengines = {
 c.completion.open_categories = ['searchengines', 'quickmarks', 'bookmarks', 'history', 'filesystem']
 c.url.start_pages = ["https://www.google.com/"]
 c.window.hide_decoration = True
+
+# hide status bar
+c.statusbar.show = 'in-mode'
+
