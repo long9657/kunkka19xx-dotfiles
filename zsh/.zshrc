@@ -53,10 +53,13 @@ alias gr=./gradlew
 alias stm='tmux source-file ~/.tmux.conf \;'
 # confirm before remove something... fk.
 alias rm="rm -i"
+
 # PATH
 export PATH="/opt/homebrew/share/android-commandlinetools/cmdline-tools/latest/bin:$PATH"
 export JAVA_HOME=$(/usr/libexec/java_home -v 23)
 export PATH=$JAVA_HOME/bin:$PATH
+export NODE_PATH=$NODE_PATH:$(npm root -g)
+
 alias vcf="cd ~/.config/nvim && nvim"
 alias python=python3
 alias dc=docker-compose
