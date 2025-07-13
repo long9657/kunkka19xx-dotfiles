@@ -38,7 +38,7 @@ c.window.hide_decoration = True
 # hide status bar
 c.statusbar.show = 'in-mode'
 
-config.bind("<Ctrl-d>", "cmd-run-with-count 15 scroll down") 
-config.bind("<Ctrl-e>", "cmd-run-with-count 15 scroll up") 
+config.bind("<d>", "cmd-run-with-count 15 scroll down") 
+config.bind("<e>", "cmd-run-with-count 15 scroll up") 
 config.bind(',r', 'spawn --userscript readability-js')
 c.scrolling.smooth = True

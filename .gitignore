@@ -5,3 +5,4 @@ data
 ollama/
 qutebrowser/.qutebrowser/bookmarks/
 qutebrowser/.qutebrowser/quickmarks/
+qutebrowser/.qutebrowser/.config.py.swp
