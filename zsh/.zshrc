@@ -112,3 +112,4 @@ qss() {
   fi       
 }
 bindkey -v
+bindkey ^F autosuggest-accept
