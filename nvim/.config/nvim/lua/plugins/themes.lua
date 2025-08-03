@@ -6,10 +6,10 @@ return {
         config = function()
             -- Set default theme
             local themes = {
-                "alabaster",
-                "catppuccin",
                 "tokyonight",
+                "catppuccin",
                 "rose-pine",
+                "none",
             }
 
             local current_theme_index = 1
@@ -23,8 +23,13 @@ return {
                     current_theme_index = 1
                 end
                 local theme = themes[current_theme_index]
-                vim.cmd.colorscheme(theme)
-                print("Change nvim theme to: " .. theme)
+                if theme == "none" then
+                    vim.cmd("hi clear")
+                    print("Theme disabled.")
+                else
+                    vim.cmd.colorscheme(theme)
+                    print("Changed nvim theme to: " .. theme)
+                end
             end, { noremap = true, silent = true })
         end,
     },
@@ -38,9 +43,4 @@ return {
         name = "rose-pine",
         priority = 1000,
     },
-    {
-        "p00f/alabaster.nvim",
-        name = "alabaster",
-        priority = 1100,
-    }
 }
