@@ -6,10 +6,10 @@ return {
 		config = function()
 			-- Set default theme
 			local themes = {
-				"catppuccin",
-				"tokyonight-night",
-				"kanagawa",
-				"rose-pine",
+				"tokyonight", -- for recording
+				"accent", -- this guy is for my eyes
+				"catppuccin", -- for recording
+				"rose-pine", -- for fun
 			}
 
 			local current_theme_index = 1
@@ -24,7 +24,7 @@ return {
 				end
 				local theme = themes[current_theme_index]
 				vim.cmd.colorscheme(theme)
-				print("Change nvim theme to: " .. theme)
+				print("Changed nvim theme to: " .. theme)
 			end, { noremap = true, silent = true })
 		end,
 	},
@@ -34,13 +34,13 @@ return {
 		priority = 800,
 	},
 	{
-		"rebelot/kanagawa.nvim",
-		name = "kanagawa",
-		priority = 900,
-	},
-	{
 		"rose-pine/neovim",
 		name = "rose-pine",
 		priority = 1000,
+	},
+	{
+		"alligator/accent.vim",
+		name = "accent",
+		priority = 1100,
 	},
 }

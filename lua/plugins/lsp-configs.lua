@@ -12,17 +12,17 @@ return {
 		opts = {
 			auto_install = true,
 			-- manually install packages that do not exist in this list please
-			ensure_installed = { "lua_ls", "zls", "gopls", "ts_ls" },
+			ensure_installed = { "zls", "gopls", "ts_ls" },
 		},
 	},
 	{
 		"neovim/nvim-lspconfig",
 		lazy = false,
 		config = function()
-			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
 			-- lua
 			lspconfig.lua_ls.setup({
+				cmd = { "lua-language-server" },
 				capabilities = capabilities,
 				settings = {
 					Lua = {
