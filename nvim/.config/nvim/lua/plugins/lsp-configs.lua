@@ -85,6 +85,7 @@ return {
 			lspconfig.buf_ls.setup({ capabilities = capabilities })
 			-- docker compose
 			lspconfig.docker_compose_language_service.setup({ capabilities = capabilities })
+			lspconfig.cobol_ls.setup({ capabilities = capabilities })
 			-- svelte
 			lspconfig.svelte.setup({ capabilities = capabilities })
 			vim.api.nvim_create_autocmd("FileType", {
@@ -96,7 +97,7 @@ return {
 				end,
 			})
 			-- python
-			lspconfig.pylsp.setup({ capabilities = capabilities })
+			lspconfig.pyright.setup({ capabilities = capabilities })
 			-- bash
 			lspconfig.bashls.setup({ capabilities = capabilities })
 			-- lsp kepmap setting
