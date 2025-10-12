@@ -56,8 +56,6 @@ alias rm="rm -i"
 
 # PATH
 export PATH="/opt/homebrew/share/android-commandlinetools/cmdline-tools/latest/bin:$PATH"
-export JAVA_HOME=$(/usr/libexec/java_home -v 23)
-export PATH=$JAVA_HOME/bin:$PATH
 export NODE_PATH=$NODE_PATH:$(npm root -g)
 
 alias vcf="cd ~/.config/nvim && nvim"
@@ -113,3 +111,7 @@ qss() {
 }
 bindkey -v
 bindkey ^F autosuggest-accept
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
