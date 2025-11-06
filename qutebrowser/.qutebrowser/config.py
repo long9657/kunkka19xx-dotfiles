@@ -32,7 +32,7 @@ c.url.searchengines = {
         "gs": "https://scholar.google.com/scholar?q={}",
         }
 c.completion.open_categories = ['searchengines', 'quickmarks', 'bookmarks', 'history', 'filesystem']
-c.url.start_pages = ["https://app.daily.dev/?utm_source=landing&utm_medium=cta&utm_campaign=landing_conversions"]
+c.url.start_pages = ["https://www.google.com"]
 c.window.hide_decoration = True
 
 # hide status bar
