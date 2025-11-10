@@ -1,4 +1,4 @@
-theme = "rose-pine"
+# theme = "rose-pine"
 font-family = "Inconsolata Nerd Font Mono Bold"
 font-size = 30
 background-opacity = 0.81
