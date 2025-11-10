@@ -19,87 +19,114 @@ return {
 		"neovim/nvim-lspconfig",
 		lazy = false,
 		config = function()
-			local lspconfig = require("lspconfig")
+			local capabilities = vim.lsp.protocol.make_client_capabilities()
+			capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 			-- lua
-			lspconfig.lua_ls.setup({
+			vim.lsp.config["lua_ls"] = {
 				cmd = { "lua-language-server" },
 				capabilities = capabilities,
 				settings = {
 					Lua = {
-						diagnostics = {
-							globals = { "vim" },
-						},
+						diagnostics = { globals = { "vim" } },
 						workspace = {
 							library = vim.api.nvim_get_runtime_file("", true),
 							checkThirdParty = false,
 						},
-						telemetry = {
-							enable = false,
-						},
+						telemetry = { enable = false },
 					},
 				},
-			})
-			-- typescript
-			lspconfig.ts_ls.setup({
+			}
+			vim.lsp.enable("lua_ls")
+
+			vim.lsp.config["ts_ls"] = {
 				capabilities = capabilities,
-			})
-			-- Js
-			lspconfig.eslint.setup({
+			}
+
+			vim.lsp.config["eslint"] = {
 				capabilities = capabilities,
-			})
-			-- zig
-			lspconfig.zls.setup({
+			}
+
+			vim.lsp.config["zls"] = {
 				capabilities = capabilities,
-			})
-			-- yaml
-			lspconfig.yamlls.setup({
+			}
+
+			vim.lsp.config["yamlls"] = {
 				capabilities = capabilities,
-			})
-			-- tailwindcss
-			lspconfig.tailwindcss.setup({
+			}
+
+			vim.lsp.config["tailwindcss"] = {
 				capabilities = capabilities,
-			})
-			-- golang
-			lspconfig.gopls.setup({
+			}
+
+			vim.lsp.config["gopls"] = {
 				capabilities = capabilities,
-			})
-			--java
-			-- lspconfig.jdtls.setup({
-			--     settings = {
-			--         java = {
-			--             configuration = {
-			--                 runtimes = {
-			--                     {
-			--                         name = "JavaSE-23",
-			--                         path = "/opt/homebrew/Cellar/openjdk/23.0.2/libexec/openjdk.jdk/Contents/Home",
-			--                         default = true,
-			--                     },
-			--                 },
-			--             },
-			--         },
-			--     },
-			-- })
+			}
+
 			-- nix
-			lspconfig.rnix.setup({ capabilities = capabilities })
+			vim.lsp.config["nil_ls"] = {
+				capabilities = capabilities,
+			}
+
 			-- protocol buffer
-			lspconfig.buf_ls.setup({ capabilities = capabilities })
+			vim.lsp.config["buf_ls"] = {
+				capabilities = capabilities,
+			}
+
 			-- docker compose
-			lspconfig.docker_compose_language_service.setup({ capabilities = capabilities })
-			lspconfig.cobol_ls.setup({ capabilities = capabilities })
+			vim.lsp.config["docker_compose_language_service"] = {
+				capabilities = capabilities,
+			}
+
+			-- cobol
+			vim.lsp.config["cobol_ls"] = {
+				capabilities = capabilities,
+			}
+
 			-- svelte
-			lspconfig.svelte.setup({ capabilities = capabilities })
+			vim.lsp.config["svelte"] = {
+				capabilities = capabilities,
+			}
+			-- python
+			vim.lsp.config["pyright"] = {
+				capabilities = capabilities,
+			}
+
+			-- bash
+			vim.lsp.config["bashls"] = {
+				capabilities = capabilities,
+			}
+
+			-- protocol buffer
+			vim.lsp.config["buf_language_server"] = {
+				capabilities = capabilities,
+			}
+
+			vim.lsp.config["asm_lsp"] = {
+				capabilities = capabilities,
+			}
+
 			vim.api.nvim_create_autocmd("FileType", {
 				pattern = "proto",
 				callback = function()
-					lspconfig.buf_language_server.setup({
-						capabilities = capabilities,
-					})
+					vim.lsp.enable("buf_language_server")
 				end,
 			})
-			-- python
-			lspconfig.pyright.setup({ capabilities = capabilities })
-			-- bash
-			lspconfig.bashls.setup({ capabilities = capabilities })
+			vim.lsp.enable({
+				"ts_ls",
+				"eslint",
+				"zls",
+				"yamlls",
+				"tailwindcss",
+				"gopls",
+				"nil_ls",
+				"buf_ls",
+				"docker_compose_language_service",
+				"cobol_ls",
+				"svelte",
+				"pyright",
+				"bashls",
+				"asm_lsp",
+			})
 			-- lsp kepmap setting
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {})
