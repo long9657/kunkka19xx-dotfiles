@@ -142,21 +142,18 @@ or
 :help Mason
 ```
 
-## Integrate local LLM with nvim
+## Integrate local LLMs with nvim
 
-I tried to run the LLM models in docker, allocated it 16GB ram, 4 cores CPU but it did not work effectively.
-So I install ollama in my native macos machine.
+- Local models: use ollama
+  [ollama](https://ollama.com/)
 
-[ollama](https://ollama.com/)
+- Code suggestion: use super Maven
+  [supermaven](https://supermaven.com/)
 
-- Gave deepseek a try but it was so slow (model depends on GPU also, while Macbook M series are different )
-- You can have web UI to do prompting, I run it with docker:
-  [docker cp file](./docker-compose.yaml)
+[docker cp file](./docker-compose.yaml)
 
 - My nvim - llm integration settings are in:
-  [llm](./nvim/.config/nvim/lua/plugins/llm.lua)
-
-  **Note that you should install llm-ls via Mason**
+  [llms](./nvim/.config/nvim/lua/plugins/llms.lua)
 
   ## Colima
 
