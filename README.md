@@ -150,12 +150,10 @@ or
 - Code suggestion: use super Maven
   [supermaven](https://supermaven.com/)
 
-[docker cp file](./docker-compose.yaml)
-
-- My nvim - llm integration settings are in:
+- My nvim - llms integration settings are in:
   [llms](./nvim/.config/nvim/lua/plugins/llms.lua)
 
-  ## Colima
+## Colima
 
 - symlink for docker.sock (use test container or act)
 
