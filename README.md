@@ -91,14 +91,25 @@ brew install wget
 
 ### Backup pkgs by brew
 
-```shell
-brew bundle dump --file=Brewfile --force
-```
-
-Re-install again
+Use the Makefile in `others/` for easy management:
 
 ```shell
-brew bundle --file=~/Brewfile
+cd ~/dotfiles/others
+
+# Create/update Brewfile and lock file
+make brew-lock
+
+# Install packages from lock file (on new system)
+make brew-install
+
+# Check if installed packages match lock file
+make brew-check
+
+# Remove packages not in Brewfile
+make brew-clean
+
+# Show all available commands
+make help
 ```
 
 Linux
