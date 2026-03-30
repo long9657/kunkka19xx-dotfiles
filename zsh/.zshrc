@@ -55,6 +55,7 @@ alias stm='tmux source-file ~/.tmux.conf \;'
 alias rm="rm -i"
 
 # PATH
+export PATH="$HOME/.local/nvim/bin:$HOME/.cargo/bin:$PATH"
 export PATH="/opt/homebrew/share/android-commandlinetools/cmdline-tools/latest/bin:$PATH"
 export NODE_PATH=$NODE_PATH:$(npm root -g)
 
