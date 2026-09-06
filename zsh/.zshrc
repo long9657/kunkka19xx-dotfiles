@@ -121,3 +121,16 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
+
+# CKAD
+setopt shwordsplit
+export do="--dry-run=client -o yaml"
+export now="--grace-period=0 --force"
+source <(kubectl completion zsh)
+# complete -o default -F __start_kubectl k
+compdef __start_kubectl k
+
+export KUBE_EDITOR=vim
+alias kn="kubectl config set-context --current --namespace"
+export EDITOR=nvim
+export VISUAL=nvim
