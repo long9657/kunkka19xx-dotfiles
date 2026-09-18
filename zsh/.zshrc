@@ -132,5 +132,6 @@ compdef __start_kubectl k
 
 export KUBE_EDITOR=vim
 alias kn="kubectl config set-context --current --namespace"
+alias git="lgtm"
 export EDITOR=nvim
 export VISUAL=nvim
