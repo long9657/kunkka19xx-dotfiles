@@ -34,7 +34,7 @@ config.window_background_image_hsb = {
 }
 
 -- default background
-local bg_image = home .. "/.config/nvim/bg/bg.jpg"
+local bg_image = background_folder .. "/bg.jpg"
 
 config.window_background_image = bg_image
 -- end image setting

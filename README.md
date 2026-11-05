@@ -15,6 +15,27 @@ So please don't wonder or judge why this repo has many commits.
 
 _Note_: Some tools I also recommend: lazydocker, bat, fzf, autocompletion, ... (can be installed with brew)
 
+## Layout and how it is consumed
+
+This repo is the single source of truth for my configs on every machine.
+
+- **macOS (no nix)**: clone to `~/dotfiles` and link packages with GNU stow,
+  for example `stow nvim tmux ghostty wezterm zsh aerospace qutebrowser`.
+  Those directories use the stow layout (`pkg/.config/...` or `pkg/.file`).
+- **NixOS / nix-darwin**: [kunkka19xx/nix](https://github.com/kunkka19xx/nix)
+  includes this repo as a git submodule at `~/nix/dotfiles` and home-manager
+  links or reads the files from there. Rebuild with `--flake '.?submodules=1'`.
+- **Linux-only dirs** (`sway`, `dmenu`, `firefox`, `zathura`) are flat and only
+  read by nix modules. They are never stowed.
+- **Platform differences** stay inside the files: runtime checks in Lua and
+  shell (`vim.fn.has("mac")`, `uname`), or a shared base plus overlay like
+  `ghostty/.config/ghostty/{config,macos,linux}`.
+- `tmux/.tmux.conf` is the standalone macOS config (tpm). `tmux/home-manager.conf`
+  is the extra config nix appends to `programs.tmux`.
+
+Edit here, commit, push. On the nix side, `git pull` inside `~/nix/dotfiles`
+then commit the submodule bump in the nix repo.
+
 ## Installing steps
 
 - You need a package manager, if you are using macos, **homebrew** is a good one.

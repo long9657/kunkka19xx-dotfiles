@@ -3,7 +3,7 @@ set -euo pipefail
 
 OS="$(uname)"
 play_sound() {
-    local file="$HOME/dotfiles/tmux/Ringing.mp3"
+    local file="$(dirname "$0")/Ringing.mp3"
     if [ "$OS" = "Darwin" ]; then
         # macOS
         afplay "$file" &

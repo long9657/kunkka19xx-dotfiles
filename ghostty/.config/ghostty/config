@@ -1,10 +1,7 @@
+# Shared ghostty settings. Platform values live in ./macos and ./linux.
+# macOS: stow links this whole dir, so the optional include below picks up ./macos.
+# Linux: home-manager composes this file + ./linux, and ./macos is absent, so it is skipped.
 # theme = "rose-pine"
 font-family = "Inconsolata Nerd Font Mono Bold"
-font-size = 30
-background-opacity = 0.98
-background-blur-radius = 0
-macos-titlebar-proxy-icon = hidden
-macos-titlebar-style = hidden
 title = ""
-cursor-opacity = 0.90 
-adjust-cursor-thickness = 1
+config-file = ?macos

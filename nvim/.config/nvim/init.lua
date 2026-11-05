@@ -19,11 +19,7 @@ require("help-floating")
 require("floating-term")
 require("ws").setup()
 -- require("lazy").setup("plugins")
-local uname = vim.loop.os_uname()
-local hostname = vim.loop.os_gethostname()
-lazy_opts = {}
-if not (uname.sysname == "Darwin" and hostname == "kunkka07xx") then
-    lazy_opts.lockfile = "~/nix/dotfiles/nvim/lazy-lock.json"
-end
-require("lazy").setup("plugins", lazy_opts)
+-- ~/.config/nvim is a symlink into this repo on every machine (stow on macOS,
+-- home-manager out-of-store symlink on nix), so lazy finds lazy-lock.json itself.
+require("lazy").setup("plugins")
 require("snipets")
