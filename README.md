@@ -34,8 +34,24 @@ This repo is the single source of truth for my configs on every machine.
 - `tmux/.tmux.conf` is the standalone macOS config (tpm). `tmux/home-manager.conf`
   is the extra config nix appends to `programs.tmux`.
 
-Edit here, commit, push. On the nix side, `git pull` inside `~/nix/dotfiles`
-then commit the submodule bump in the nix repo.
+### Syncing between machines
+
+Edited on the MacBook:
+
+```sh
+cd ~/dotfiles && git commit -am "..." && git push
+# on a nix machine: cd ~/nix && make dotfiles-pull && make push && make home
+```
+
+Edited on a nix machine (inside `~/nix/dotfiles`):
+
+```sh
+cd ~/nix/dotfiles && git commit -am "..."
+cd ~/nix && git add dotfiles && git commit -m "dotfiles: bump submodule" && make push
+# on the MacBook: cd ~/dotfiles && git pull   (stow -R <pkg> only if files were added or removed)
+```
+
+Never run `git subtree` here anymore; nvim is a plain directory now.
 
 ## Installing steps
 
