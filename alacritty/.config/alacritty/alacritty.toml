@@ -16,7 +16,7 @@ option_as_alt = "Both"
 [font]
 normal.family = "Inconsolata Nerd Font"
 
-size = 21
+size = 19
 
 
 [keyboard]

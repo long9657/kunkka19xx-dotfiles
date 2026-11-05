@@ -15,6 +15,8 @@ local languages = {
     "json",
     "zig",
     "http",
+    "rust",
+    "toml",
 }
 
 -- nvim-treesitter `main` is a rewrite that requires nvim >= 0.12 (and tree-sitter-cli);
