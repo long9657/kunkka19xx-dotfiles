@@ -6,7 +6,16 @@ local brightness = 0.03
 
 -- image setting
 local home = os.getenv("HOME")
-local background_folder = home .. "/bg"
+-- wallpapers live in the dotfiles repo: ~/nix/dotfiles on nix machines, ~/dotfiles on macOS
+local function first_existing_dir(candidates)
+    for _, dir in ipairs(candidates) do
+        if os.rename(dir, dir) then
+            return dir
+        end
+    end
+    return candidates[1]
+end
+local background_folder = first_existing_dir({ home .. "/nix/dotfiles/wallpapers", home .. "/dotfiles/wallpapers" })
 local function pick_random_background(folder)
     local handle = io.popen('ls "' .. folder .. '"')
     if handle ~= nil then

@@ -30,6 +30,7 @@ This repo is the single source of truth for my configs on every machine.
 - **Platform differences** stay inside the files: runtime checks in Lua and
   shell (`vim.fn.has("mac")`, `uname`), or a shared base plus overlay like
   `ghostty/.config/ghostty/{config,macos,linux}`.
+- `wallpapers/` is the single image folder, used by wezterm, sway, i3 and niri.
 - `tmux/.tmux.conf` is the standalone macOS config (tpm). `tmux/home-manager.conf`
   is the extra config nix appends to `programs.tmux`.
 
