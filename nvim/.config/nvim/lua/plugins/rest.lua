@@ -1,5 +1,8 @@
 return {
     "mistweaverco/kulala.nvim",
+    -- upstream repo returns 404 on GitHub (deleted or private), so it can't be cloned anymore;
+    -- keep using it only on machines that already have a copy
+    enabled = (vim.uv or vim.loop).fs_stat(vim.fn.stdpath("data") .. "/lazy/kulala.nvim") ~= nil,
     ft = { "http", "rest" },
 
     keys = {

@@ -29,7 +29,10 @@ source $ZSH/oh-my-zsh.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+for f in /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh \
+         /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh; do
+  [[ -r $f ]] && source $f && break
+done
 
 # fzf
 source <(fzf --zsh)
@@ -126,9 +129,9 @@ export PATH="$HOME/go/bin:$PATH"
 setopt shwordsplit
 export do="--dry-run=client -o yaml"
 export now="--grace-period=0 --force"
-source <(kubectl completion zsh)
+(( $+commands[kubectl] )) && source <(kubectl completion zsh)
 # complete -o default -F __start_kubectl k
-compdef __start_kubectl k
+(( $+commands[kubectl] )) && compdef __start_kubectl k
 
 export KUBE_EDITOR=vim
 alias kn="kubectl config set-context --current --namespace"
