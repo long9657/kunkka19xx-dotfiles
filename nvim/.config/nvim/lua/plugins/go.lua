@@ -6,7 +6,12 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 	},
 	config = function()
-		require("go").setup()
+		require("go").setup({
+			-- go.nvim's codelens.refresh() calls vim.lsp.codelens.enable(),
+			-- which only exists on Neovim 0.12+. On 0.11.x this throws on
+			-- every save (BufWritePre). Disable until Neovim is upgraded.
+			lsp_codelens = false,
+		})
 	end,
 	event = { "CmdlineEnter" },
 	ft = { "go", "gomod" },
